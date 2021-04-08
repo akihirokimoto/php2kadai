@@ -19,7 +19,7 @@ window.onload = async function() {
       $results.innerHTML = texts.join('');
     };
     
-    // 入力するたびに検索( debounce で API 連打対策 )
+  
     $q.oninput = _.debounce(search, 256);
     
     // フォーカスしたら全文字選択
@@ -40,7 +40,6 @@ window.onload = async function() {
     // JSON に変換
     var data = await res.json();
     
-    // 必要なものだけ抜き出してわかりやすいフォーマットに変更する
     var items = data.items.map(item => {
       var vi = item.volumeInfo;
       return {
